@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/head") %>
+    <title>Shoes Store</title>
+</head>
+
+<body>
+    <%- include("partials/navigation") %>
+    <div class="container p-4">
+        <div class="row">
+            <div class="card-columns">
+                <% images.forEach(function(image) { %>
+                <div class="card animate__animated animate__fadeInRight">
+                    <img class="card-img-top" src="<%= image.path %>">
+                    <div class="card-body">
+                        <h5 class="card-title"> <%= image.title %> </h5>
+                        <p class="card-text"> <%= image.description %> </p>
+                        <p> <%= format(image.created_at) %> </p>
+                        <a class="btn btn-info" href="/image/<%= image._id %>">Ver imagen</a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
